@@ -24,8 +24,8 @@ function App() {
     const formData = new FormData();
     formData.append('archivo', file);
     formData.append('K datos', k);
-    formData.append('sm', method); // Agrega el valor de sm al FormData
-  
+    formData.append('sm', method);
+
     fetch('http://localhost:5000/upload', {
       method: 'POST',
       body: formData,
@@ -40,8 +40,6 @@ function App() {
         setLoading(false);
       });
   };
-  
-  
 
   return (
     <div>
@@ -65,23 +63,32 @@ function App() {
       <button onClick={handleSubmit}>Submit</button>
       {loading && <p>Loading...</p>}
       {result && (
-          <div>
-            <h2>Result</h2>
-            <p>{result.ok ? 'Success' : 'Error'}: {result.msg}</p>
-            {result.data && result.data.length > 0 ? (
-              <>
-                <p>Data:</p>
-                <ul>
-                  {result.data.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            {result.time && <p>Time: {result.time}</p>}
-          </div>
-        )}
-
+        <div>
+          <h2>Result</h2>
+          <p>{result.ok ? 'Success' : 'Error'}: {result.msg}</p>
+          {result.data && result.data.length > 0 ? (
+            <>
+              <p>Data:</p>
+              <div className="image-container">
+                {result.data.map((item, index) => {
+                  const [score, imagePath] = item;
+                  return (
+                    <div key={index} className="image-item">
+                      <img
+                        src={process.env.PUBLIC_URL + '/dataset/' + imagePath}
+                        alt={`Image ${index + 1}`}
+                      />
+                      <p>Score: {score}</p>
+                      <p>Image Path: {imagePath}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : null}
+          {result.time && <p>Time: {result.time}</p>}
+        </div>
+      )}
     </div>
   );
 }
