@@ -118,7 +118,7 @@ function App() {
                     <div key={index} className="image-item">
                      <img src={process.env.PUBLIC_URL + '/dataset/' + imagePath} alt={`Result ${index + 1}`} />
                       <p className="image-path">{imagePath}</p>
-                      <p>Score: {score}</p>
+                      <p>Distancia: {score}</p>
                     </div>
                   );
                 })}
