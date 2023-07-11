@@ -104,5 +104,5 @@ Para un k = 8 , se experimento con datasets de tamaño n ( 100 , 200 , 400 , 800
 
 Se puede observar en la grafica :
 
-- KNN-RTree tendrá un tiempo de ejecución un poco más alto que  KNN-HighD . Esto se debe a que RTree es un índice espacial, lo que significa que puede identificar rápidamente qué puntos del conjunto de datos probablemente sean los k vecinos más cercanos.
-- KNN-HighD tendrá el tiempo de ejecución mas bajo.
+- KNN-Secuencial es de fácil implementación ,pero puede ser lento en un conjunto de datos grande.
+- KNN-RTree tendrá un tiempo de ejecución un poco más alto que  KNN-HighD . Eficiente en conjuntos de datos con alta dimensionalidad. Requiere más espacio de almacenamiento que el KNN secuencial.
