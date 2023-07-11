@@ -108,7 +108,7 @@ Para un k = 8 , se experimento con datasets de tamaño n ( 100 , 200 , 400 , 800
 
 ### Gráficos de los resultados
 
-<img height="400" src= grafico.jpg>
+<img height="400" src= grafico.png>
 
 
 ### Análisis y discusión
