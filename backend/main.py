@@ -28,13 +28,6 @@ class some_class():
         self.PROCESS_RTREE()
         #self.LOAD_RTREE()
 
-    # def LOAD_RTREE(self):
-    #     try:
-    #         with
-
-    #     expect:
-    #         print("error loading rtree")
-
     def PROCESS_RTREE(self):
         clear_rtree_directory()
         # 128d rtree index
@@ -131,13 +124,3 @@ class some_class():
             # print(key)
             print(str(counter) + ") -> (" + str(key[0]) + ", " + str(key[1]) + ")")
             counter += 1
-
-
-# filename is provided
-#  radius is provided
-# cwd must be calculated before
-# total must be calculated in init, is the number of encodings we have
-# encodings is a list (example) with a relative order with the indexes
-# paths is a list with a relative order with the indexes
-#   it means that for index 0, encodings have an code, and paths have the name of that code in specific
-# all of that calculated in init
