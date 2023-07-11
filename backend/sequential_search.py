@@ -1,12 +1,3 @@
-# indexacion y busqueda - KNN - Secuencial
-
-# KNN-Secuencial: Implementación de los algoritmos de búsqueda sin indexación
-# o Búsqueda KNN con cola de prioridad, el cual recibe como parámetro el objeto de 
-# consulta y la cantidad de objetos a recuperar K.
-# o Búsqueda  por  Rango,  el  cual  recibe  como  parámetro  el  objeto  de  consulta  y  un 
-# radio  de  búsqueda.    Incluir  el  análisis  de  la  distribución  de  la  distancia  para 
-# experimentar con 3 valores de radio diferente. 
-
 import time
 import os
 import numpy
@@ -35,10 +26,6 @@ def range_search(file_name, radius, cwd, block_dictionary):
             time1 = time.time()
             # for i in range(total):
             for path in block_dictionary:
-                # print(block_dictionary[path])
-                # print(type(block_dictionary[path]))
-                # print(new_face_encoding[0])
-                # print(type(new_face_encoding[0]))
                 first = numpy.array(list(map(float, block_dictionary[path].strip("()").split(', '))))
                 second = numpy.array(list(map(float, new_face_encoding[0])))
                 distance = numpy.linalg.norm(first - second)
@@ -85,23 +72,3 @@ def knn_search(file_name, k, cwd, block_dictionary):
             print("knn_search took " + tiempo + " ms.")
             print("displaying results:")
             return result, tiempo
-
-# we pass a file, a photo or image we have to compare to the ones we processed
-
-# si no existe un path hacia el file, retoranmos error de file no encontrado
-# we load and encode the image file using the face_recognition module
-# if len == 0, return bc we did not find any face in the image
-# else, we load the encoding in a tuple
-# start time
-# for i in range(13333) 
-#     first = procesed image encoding
-#     second = our image encoding
-#     distancia = numpy.linalg.norm(first-second)
-#     if distanci menor que radio:
-#         hacemos append a nuestra lista de resultados(i, dist)
-# hacemos sort de los resultados. o podriamos usar un priority queue aqui.
-# end time
-# get info like path, file_name, and dist
-# append to result
-# return
-
