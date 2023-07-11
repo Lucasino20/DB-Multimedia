@@ -1,10 +1,12 @@
 .body{
    background: linear-gradient(to top left, #00FFFF, #93278F);
+   background-color: #FF9C2E;
 }
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #dcfde2;
 }
 
 .styled-title {
