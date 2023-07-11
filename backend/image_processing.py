@@ -3,11 +3,8 @@ import numpy
 import random
 import linecache as lc
 import io
-# import matplotlib.pyplot
-# from os import listdir
 import shutil
 import os
-# from os.path import isfile, join
 import json
 
 N = 5000
@@ -21,9 +18,6 @@ path_to_clean_1 = processed_images_path
 def process_dataset(limit):
 
     total = 0 # this is the total number of processed images
-
-    # distribution = []
-    # final_distribution = []
 
     if not os.path.exists(processed_images_path): # of the path for the processed imaged folder do not exist, create it
         os.makedirs(processed_images_path)
