@@ -89,7 +89,6 @@ La técnica de indexación de un KD-Tree es la siguiente:
 Estas son algunas de las formas en que la maldición de la dimensionalidad puede afectar el rendimiento de las técnicas de indexación espacial:
 
 - El volumen del conjunto de datos aumenta exponencialmente con el número de dimensiones, lo que dificulta el almacenamiento y el procesamiento de los datos.
-- La densidad de puntos en el conjunto de datos disminuye a medida que aumenta la dimensionalidad, lo que dificulta la búsqueda de patrones y relaciones.
 - La selectividad de las consultas espaciales disminuye a medida que aumenta la dimensionalidad, lo que significa que es necesario escanear más datos para responder una consulta.
 
 El artículo "An Index Structure for High-Dimensional Data" de Berchtold, Keim y Kriegel analiza cómo la maldición de la dimensionalidad puede afectar el rendimiento de las técnicas de indexación espacial. Proponen una nueva estructura de índice llamada X-tree, que está diseñada para abordar los desafíos que plantean los datos de alta dimensión.
@@ -116,6 +115,6 @@ Para un k = 8 , se experimento con datasets de tamaño n ( 100 , 200 , 400 , 800
 
 Se puede observar en la grafica :
 
-- KNN-Secuencial no tiene un tiempo de ejecucion en comparacion a los otros dos. Esto se debe a que no requiere ninguna indexación y simplemente puede iterar a través de todo el conjunto de datos para encontrar los k vecinos más cercanos.
+- KNN-Secuencial no tiene un tiempo alto de ejecucion en comparacion a los otros dos. Esto se debe a que no requiere ninguna indexación y simplemente puede iterar a través de todo el conjunto de datos para encontrar los k vecinos más cercanos.
 - KNN-RTree tendrá un tiempo de ejecución un poco más alto que KNN-Secuencial. Esto se debe a que RTree es un índice espacial, lo que significa que puede identificar rápidamente qué puntos del conjunto de datos probablemente sean los k vecinos más cercanos.
 - KNN-HighD tendrá el tiempo de ejecución más alto. Esto se debe a que HighD es un algoritmo más complejo que KNN-Secuencial o KNN-RTree, y requiere más computación para encontrar los k vecinos más cercanos.
