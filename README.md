@@ -18,7 +18,7 @@ Proyecto de Base de Datos 2 : Base de Datos Multimedia
 - [Implementaciones](#Implementaciones)
   * [KNN Search](#KNN-Search)
   * [Range Search](#Range-Search)
-- [Análisis de la maldición de la dimensionalidad y como mitigarlo](#Análisis-de-la-maldición-de-la-dimensionalidad-y-como-mitigarlo)
+- [Análisis de la maldición de la dimensionalidad](#Análisis-de-la-maldición-de-la-dimensionalidad)
 - [Experimentación](#Experimentación)
   * [Gráficos de los resultados](#Gráficos-de-los-resultados)
   * [Análisis y discusión](#Análisis-y-discusión)
