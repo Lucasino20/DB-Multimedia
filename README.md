@@ -57,10 +57,10 @@ KD-Tree es una técnica de indexación popular para datos espaciales porque se p
 
 La técnica de indexación de un KD-Tree es la siguiente:
 
--Los puntos en el conjunto de datos se ordenan primero a lo largo de una sola dimensión.
--Luego, los puntos ordenados se dividen recursivamente en dos mitades a lo largo de la misma dimensión.
--El proceso se repite para cada una de las dimensiones restantes.
--El árbol resultante es un KD-Tree .
+- Los puntos en el conjunto de datos se ordenan primero a lo largo de una sola dimensión.
+- Luego, los puntos ordenados se dividen recursivamente en dos mitades a lo largo de la misma dimensión.
+- El proceso se repite para cada una de las dimensiones restantes.
+- El árbol resultante es un KD-Tree .
 
 
 ## Implementaciones
