@@ -3,9 +3,6 @@ import numpy
 import time
 import os
 
-
-path_data = "data.json"
-
 def knn_search_rtree(file_name, K, cwd, indexed_dictionary,idx):
       image_path = cwd + '/test_images/' + file_name
       if not os.path.exists(image_path):
@@ -25,7 +22,6 @@ def knn_search_rtree(file_name, K, cwd, indexed_dictionary,idx):
           KNNvalue = list(idx.nearest(coordinates=new_face_encoding, num_results=K))
           end=time.time()     
           counter = 1
-      #     previous_path = " "
           for idx in KNNvalue:
             item = indexed_dictionary[idx]
             path = item[0]
