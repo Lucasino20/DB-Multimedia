@@ -17,7 +17,6 @@ Proyecto de Base de Datos 2 : Base de Datos Multimedia
   * [KD-Tree](#KD-Tree)
 - [Implementaciones](#Implementaciones)
   * [KNN Search](#KNN-Search)
-  * [Range Search](#Range-Search)
 - [Análisis de la maldición de la dimensionalidad](#Análisis-de-la-maldición-de-la-dimensionalidad)
 - [Experimentación](#Experimentación)
   * [Gráficos de los resultados](#Gráficos-de-los-resultados)
@@ -73,16 +72,6 @@ La técnica de indexación de un KD-Tree es la siguiente:
 - Se itera sobre el diccionario de bloques `block_dictionary` que contiene las codificaciones de las caras almacenadas previamente.
 - Para cada bloque, se convierte su codificación de cadena a un array numpy `first` y se calcula la distancia entre la nueva codificación de la cara `second` y el bloque utilizando la norma euclidiana `numpy.linalg.norm`.
 - Después de calcular las distancias para todos los bloques, se obtienen los k vecinos más cercanos de la cola de prioridad y se almacenan en `result`.
-
-### Range Search
-
-- Se construye la ruta de la imagen utilizando el nombre del archivo `file_name`.
-- Si la ruta de la imagen existe, se carga la imagen de la cara utilizando `face_recognition.load_image_file` y se calcula su codificación de reconocimiento facial utilizando `face_recognition.face_encodings`.
-- Si se encuentra al menos una cara en la imagen, se guarda su codificación en `new_face_encoding`.
-- Se itera sobre el diccionario de bloques `block_dictionary` que contiene las codificaciones de las caras almacenadas previamente.
-- Para cada bloque, se convierte su codificación de cadena a un array numpy `first` y se calcula la distancia entre la nueva codificación de la cara `second` y el bloque utilizando la norma euclidiana `numpy.linalg.norm`.
-- Si la distancia es menor que el radio especificado, se agrega la tupla (path, distance) a `result` y la tupla (person, round(distance, 3)) a `info`.
-- Se devuelve `info` (las caras dentro del rango) como resultado de la función.
 
 ## Análisis de la maldición de la dimensionalidad
 
