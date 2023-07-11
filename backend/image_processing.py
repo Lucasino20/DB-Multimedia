@@ -9,7 +9,7 @@ import json
 
 N = 5000
 BLOCK_SIZE = 1000
-cwd = os.getcwd() # current working directory
+cwd = os.getcwd() 
 processed_images_path = cwd + "/processed_dataset"
 filename = "processed_images.json"
 path_to_clean_1 = processed_images_path
@@ -17,27 +17,22 @@ path_to_clean_1 = processed_images_path
 
 def process_dataset(limit):
 
-    total = 0 # this is the total number of processed images
-
-    if not os.path.exists(processed_images_path): # of the path for the processed imaged folder do not exist, create it
+    total = 0 
+    if not os.path.exists(processed_images_path):
         os.makedirs(processed_images_path)
-
     FACTOR = 1
     counter = 0
     block_dictionary = {}
     encodings = {}
-    # aux_list = [] # this is used to load each dictionary in an entry of the list, to append each entry in one line of the file, by iterating over this list
-    dataset_directory_path = cwd + "/dataset" # path for the data file
-    dataset_subdirectories_list = os.listdir(dataset_directory_path) # path for the subdirectories in the data file
-
-    for subdirectory in dataset_subdirectories_list: # list of all subdirectories names
-        # print(subdirectory) # name of the las sub subdirectories
+    dataset_directory_path = cwd + "/dataset" 
+    dataset_subdirectories_list = os.listdir(dataset_directory_path) 
+    for subdirectory in dataset_subdirectories_list: 
         if(total >= limit):
             load_to_memory(block_dictionary)
             return total, encodings
 
         subdirectory_path = dataset_directory_path + "/" + subdirectory
-        for image in os.listdir(subdirectory_path): # search in all subdirectories # in most of them there are only 1
+        for image in os.listdir(subdirectory_path): 
             if(total >= limit):
                 load_to_memory(block_dictionary)
                 return total, encodings
@@ -45,11 +40,10 @@ def process_dataset(limit):
             image_path = subdirectory_path + "/" + image
             key = subdirectory + '/' + image
             face = face_recognition.load_image_file(image_path)
-            face_encoding = face_recognition.face_encodings(face) # calculating the image encoding
+            face_encoding = face_recognition.face_encodings(face) 
             
             if len(face_encoding) != 0:
                 new_face_encoding = tuple(face_encoding[0])
-                # distribution.append(new_face_encoding)
                 if new_face_encoding not in block_dictionary:
                     block_dictionary[key] = str(new_face_encoding)
                     encodings[key] = str(new_face_encoding)
@@ -71,13 +65,9 @@ def process_dataset(limit):
                         FACTOR += 1
                         load_to_memory(block_dictionary)
                 
-            else: # some debugging
+            else: 
                 print("no face found in: " + str(image_path))
-    # final_distribution = genDist(N, distribution)
     load_to_memory(block_dictionary)
-    # matplotlib.pyplot.hist(final_distribution, bins=100)
-    # matplotlib.pyplot.show()
-
     return total, encodings
 
 
@@ -103,7 +93,7 @@ def genDist(N, distribution):
     result = []
     
     for i in range(1, N):
-        aux = () # tuple
+        aux = () 
         aux = random.sample(range(0, len(distribution)), 2)
         first = numpy.array(distribution[aux[0]])
         second = numpy.array(distribution[aux[1]])
@@ -120,7 +110,6 @@ def clear_processed_processes_directory():
 def load_block_dictionary(block_dictionary, total):
     for i in range(1, total):
         PATH = cwd + "/processed_dataset/processed_images.json"
-        #print(PATH)
         try:
             aux = lc.getline(PATH, i).rstrip()
             if aux != "":
@@ -134,6 +123,3 @@ def load_block_dictionary(block_dictionary, total):
     return block_dictionary
 
 
-
-# clear_processed_processes_directory()
-# process_dataset()

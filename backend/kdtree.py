@@ -4,7 +4,6 @@ import numpy
 import face_recognition
 import pandas as pd
 
-# PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.neighbors import KDTree
@@ -28,7 +27,6 @@ def kdtree(file_name, k, cwd, block_dictionary):
             
             if not isFile:
                 print("a")
-                # Tener todo en un dataframe
                 col = [str(i) for i in range(128)]
                 temp1 = pd.DataFrame(columns=col)
                 img = pd.DataFrame(columns=["img"])
@@ -50,7 +48,6 @@ def kdtree(file_name, k, cwd, block_dictionary):
             else:
                 print("searching...")
                 time1 = time.time()
-                #temp1.to_csv('KD-TREE.csv',index=False, encoding='utf-8')    
                 temp1 = pd.read_csv(cwd+'/KD-TREE.csv')
                 temp1.reset_index(drop=True, inplace=True)
                 tree = KDTree(temp1.iloc[:, 0:-1])
