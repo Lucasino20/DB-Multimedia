@@ -109,8 +109,13 @@ Para un k = 8 , se experimento con datasets de tamaño n ( 100 , 200 , 400 , 800
 
 ### Gráficos de los resultados
 
+<img height="400" src= grafico.jpg>
 
 
 ### Análisis y discusión
 
-Se puede observar en la grafica 
+Se puede observar en la grafica :
+
+- KNN-Secuencial no tiene un tiempo de ejecucion en comparacion a los otros dos. Esto se debe a que no requiere ninguna indexación y simplemente puede iterar a través de todo el conjunto de datos para encontrar los k vecinos más cercanos.
+- KNN-RTree tendrá un tiempo de ejecución un poco más alto que KNN-Secuencial. Esto se debe a que RTree es un índice espacial, lo que significa que puede identificar rápidamente qué puntos del conjunto de datos probablemente sean los k vecinos más cercanos.
+- KNN-HighD tendrá el tiempo de ejecución más alto. Esto se debe a que HighD es un algoritmo más complejo que KNN-Secuencial o KNN-RTree, y requiere más computación para encontrar los k vecinos más cercanos.
